@@ -69,23 +69,107 @@ val circuit_assembler = mods.gregtech.recipe.RecipeMap.getByName("circuit_assemb
 
 
 
+val name_removals = [
+    "opencomputers:printer18",
+    "opencomputers:adapter0",
+    "opencomputers:assembler1",
+    "opencomputers:cable2",
+    "opencomputers:cable2",
+    "opencomputers:capacitor3",
+    "opencomputers:charger8",
+    "opencomputers:case14",
+    "opencomputers:case26",
+    "opencomputers:case35",
+    "opencomputers:disassembler9",
+    "opencomputers:diskdrive10",
+    "opencomputers:material50",
+    "opencomputers:material51",
+    "opencomputers:geolyzer11",
+    "opencomputers:hologram112",
+    "opencomputers:powerconverter16",
+    "opencomputers:netsplitter28",
+    "opencomputers:powerdistributor17",
+    "opencomputers:raid19",
+    "opencomputers:redstone20",
+    "opencomputers:relay21",
+    "opencomputers:screen122",
+    "opencomputers:screen224",
+    "opencomputers:screen323",
+    "opencomputers:rack25",
+    "opencomputers:waypoint26",
+    "opencomputers:transposer29",
+    "opencomputers:material39",
+    "opencomputers:material34",
+    "opencomputers:material40",
+    "opencomputers:material40",
+    "opencomputers:material42",
+    "opencomputers:material48",
+    "opencomputers:material49",
+    "opencomputers:material36",
+    "opencomputers:material37",
+    "opencomputers:material38",
+    "opencomputers:material33",
+    "opencomputers:material46",
+    "opencomputers:material47",
+    "opencomputers:material35",
+    "opencomputers:component77",
+    "opencomputers:component78",
+    "opencomputers:tool55",
+    "opencomputers:component62",
+    "opencomputers:component63",
+    "opencomputers:component64",
+    "opencomputers:component65",
+    "opencomputers:component66",
+    "opencomputers:component67",
+    "opencomputers:card90",
+    "opencomputers:card91",
+    "opencomputers:card92",
+    "opencomputers:component80",
+    "opencomputers:storage125",
+    "opencomputers:card81",
+    "opencomputers:card82",
+    "opencomputers:card83",
+    "opencomputers:storage127",
+    "opencomputers:storage128",
+    "opencomputers:storage129",
+    "opencomputers:card88",
+    "opencomputers:card89",
+    "opencomputers:component68",
+    "opencomputers:component69",
+    "opencomputers:component70",
+    "opencomputers:component71",
+    "opencomputers:component72",
+    "opencomputers:component73",
+    "opencomputers:card86",
+    "opencomputers:card84",
+    "opencomputers:card85",
+    "opencomputers:tool56",
+    "opencomputers:wrench59",
+    "opencomputers:component74",
+    "opencomputers:component75",
+    "opencomputers:component76",
+    "opencomputers:component79",
+    "opencomputers:upgrade124",
+    "opencomputers:card87",
+    "opencomputers:hologram213",
+    "opencomputers:motionsensor15"
+] as string[];
 
+for item in name_removals {
+	recipes.removeByRecipeName(item);
+}
 
 
 // BLOCKS---------------------------------------------------------------------------------------------------------------
 
 //3D Printer
-
-recipes.removeByRecipeName("opencomputers:printer18");
 recipes.addShaped("ct_oc_3dprinter", <opencomputers:printer>, 
     [[<ore:plateTitanium>, ev_robot_arm, <ore:plateTitanium>],
     [ev_robot_arm, <ore:circuitExtreme>, ev_robot_arm],
     [<ore:plateTitanium>, ev_machine_hull, <ore:plateTitanium>]]);
     
 
-
 //Adapter
-recipes.removeByRecipeName("opencomputers:adapter0");
 assembler.recipeBuilder()
 	.inputs(mv_machine_hull)
 	.inputs(<ore:circuitGood>)
@@ -99,7 +183,6 @@ assembler.recipeBuilder()
 
 
 //assembler
-recipes.removeByRecipeName("opencomputers:assembler1");
 assembler.recipeBuilder()
 	.inputs(hv_machine_hull)
 	.inputs(<ore:circuitAdvanced> * 2)
@@ -113,7 +196,6 @@ assembler.recipeBuilder()
 
 
 //Cable (this one is an experiment on a more realistic recipe, also pretty unique)
-recipes.removeByRecipeName("opencomputers:cable2");
 assembler.recipeBuilder()
 	.inputs(<ore:wireFineAnnealedCopper> * 2)
 	.inputs(<ore:foilPlastic>)
@@ -126,8 +208,6 @@ assembler.recipeBuilder()
 
 
 //Capacitor
-
-recipes.removeByRecipeName("opencomputers:capacitor3");
 recipes.addShaped("ct_oc_capacitor", <opencomputers:capacitor>, 
     [[<ore:plateAluminium>, <ore:plateAluminium>, <ore:plateAluminium>],
     [<ore:wireGtDoubleAnnealedCopper>, mv_machine_hull, <ore:wireGtDoubleAnnealedCopper>],
@@ -135,16 +215,13 @@ recipes.addShaped("ct_oc_capacitor", <opencomputers:capacitor>,
 
 
 //Charger
-
-recipes.removeByRecipeName("opencomputers:charger8");
 recipes.addShaped("ct_oc_charger", <opencomputers:charger>, 
     [[<ore:plateStainlessSteel>, <ore:craftingToolWrench>, <ore:plateStainlessSteel>],
     [<ore:oc:capacitor>, <ore:circuitAdvanced>, <ore:oc:capacitor>],
     [<ore:plateStainlessSteel>, hv_machine_hull, <ore:plateStainlessSteel>]]);
 
-//Computer case Tier 1
 
-recipes.removeByRecipeName("opencomputers:case14");
+//Computer case Tier 1
 assembler.recipeBuilder()
 	.inputs(mv_machine_hull)
 	.inputs(<ore:cableGtSingleAnnealedCopper> * 2)
@@ -159,8 +236,6 @@ assembler.recipeBuilder()
 
 
 //Computer case Tier 2
-
-recipes.removeByRecipeName("opencomputers:case26");
 assembler.recipeBuilder()
 	.inputs(hv_machine_hull)
 	.inputs(<ore:cableGtSingleElectrum> * 2)
@@ -175,8 +250,6 @@ assembler.recipeBuilder()
 
 
 //Computer case Tier 3
-
-recipes.removeByRecipeName("opencomputers:case35");
 assembler.recipeBuilder()
 	.inputs(ev_machine_hull)
 	.inputs(<ore:cableGtSingleAluminium> * 2)
@@ -191,8 +264,6 @@ assembler.recipeBuilder()
     
 
 //Disassembler
-
-recipes.removeByRecipeName("opencomputers:disassembler9");
 recipes.addShaped("ct_oc_disassembler", <opencomputers:disassembler>, 
     [[mv_robot_arm, <ore:oc:analyzer>, mv_conveyor_belt],
     [mv_pump, mv_machine_hull, mv_conveyor_belt],
@@ -200,8 +271,6 @@ recipes.addShaped("ct_oc_disassembler", <opencomputers:disassembler>,
     
 
 //Disk drive
-
-recipes.removeByRecipeName("opencomputers:diskdrive10");
 recipes.addShaped("ct_oc_diskdrive", <opencomputers:diskdrive>, 
     [[<ore:cableGtSingleAnnealedCopper>, <ore:circuitGood>, <ore:craftingToolWrench>],
     [mv_piston, mv_machine_hull, <ore:craftingLensWhite>],
@@ -210,8 +279,6 @@ recipes.addShaped("ct_oc_diskdrive", <opencomputers:diskdrive>,
     
     
 //drone case Tier 1
-
-recipes.removeByRecipeName("opencomputers:material50");
 assembler.recipeBuilder()
 	.inputs(power_thruster * 4)
 	.inputs(<ore:circuitAdvanced> * 2)
@@ -226,8 +293,6 @@ assembler.recipeBuilder()
 
 
 //drone case Tier 1
-
-recipes.removeByRecipeName("opencomputers:material51");
 assembler.recipeBuilder()
 	.inputs(advanced_power_thruster * 4)
 	.inputs(<ore:circuitExtreme> * 2)
@@ -242,8 +307,6 @@ assembler.recipeBuilder()
 
 
 //Geolyzer
-
-recipes.removeByRecipeName("opencomputers:geolyzer11");
 recipes.addShaped("ct_oc_geolyzer", <opencomputers:geolyzer>, 
     [[<ore:cableGtSingleElectrum>, scanner, <ore:cableGtSingleElectrum>],
     [mv_sensor, hv_machine_hull, mv_sensor],
@@ -251,8 +314,6 @@ recipes.addShaped("ct_oc_geolyzer", <opencomputers:geolyzer>,
     
     
 //hologram tier 1
-
-recipes.removeByRecipeName("opencomputers:hologram112");
 recipes.addShaped("ct_oc_hologram1", <opencomputers:hologram1>, 
     [[<ore:plateStainlessSteel>, <ore:craftingLensLime>, <ore:plateStainlessSteel>],
     [power_ic, hv_machine_hull, power_ic],
@@ -261,7 +322,6 @@ recipes.addShaped("ct_oc_hologram1", <opencomputers:hologram1>,
 
 //hologram tier 2
 
-recipes.removeByRecipeName("opencomputers:hologram213");
 recipes.addShaped("ct_oc_hologram2", <opencomputers:hologram2>, 
     [[<ore:plateStainlessSteel>, <ore:craftingLensLime>, <ore:plateStainlessSteel>],
     [high_power_ic, ev_machine_hull, high_power_ic],
@@ -269,8 +329,6 @@ recipes.addShaped("ct_oc_hologram2", <opencomputers:hologram2>,
     
 
 //Motion sensor
-
-recipes.removeByRecipeName("opencomputers:motionsensor15");
 recipes.addShaped("ct_oc_motionsensor", <opencomputers:motionsensor>, 
     [[<ore:plateStainlessSteel>, hv_sensor, <ore:plateStainlessSteel>],
     [hv_sensor, <ore:oc:cpu2>, hv_sensor],
@@ -278,8 +336,6 @@ recipes.addShaped("ct_oc_motionsensor", <opencomputers:motionsensor>,
     
     
 //Power Converter
-
-recipes.removeByRecipeName("opencomputers:powerconverter16");
 recipes.addShaped("ct_oc_powerconverter", <opencomputers:powerconverter>, 
     [[<ore:plateAluminium>, <ore:circuitGood>, <ore:plateAluminium>],
     [<ore:cableGtSingleAnnealedCopper>, mv_machine_hull, oc_cable],
@@ -287,7 +343,6 @@ recipes.addShaped("ct_oc_powerconverter", <opencomputers:powerconverter>,
      
     
 //Net splitter
-recipes.removeByRecipeName("opencomputers:netsplitter28");
 recipes.addShaped("ct_oc_netsplitter", <opencomputers:netsplitter>, 
     [[<ore:plateAluminium>, machine_controller, <ore:plateAluminium>],
     [oc_cable, mv_machine_hull, oc_cable],
@@ -295,14 +350,12 @@ recipes.addShaped("ct_oc_netsplitter", <opencomputers:netsplitter>,
     
     
 //power distributor
-recipes.removeByRecipeName("opencomputers:powerdistributor17");
 recipes.addShaped("ct_oc_powerdistributor", <opencomputers:powerdistributor>,
     [[oc_cable, <opencomputers:powerconverter>, oc_cable]]);
     
 
 
 //Raid
-recipes.removeByRecipeName("opencomputers:raid19");
 recipes.addShaped("ct_oc_raid", <opencomputers:raid>, 
     [[<ore:plateTitanium>, <ore:oc:cpu3>, <ore:plateTitanium>],
     [<ore:oc:ram1>, <ore:oc:diskDrive>, <ore:oc:ram1>],
@@ -310,7 +363,6 @@ recipes.addShaped("ct_oc_raid", <opencomputers:raid>,
     
     
 //Redstone I/O
-recipes.removeByRecipeName("opencomputers:redstone20");
 recipes.addShaped("ct_oc_redstoneio", <opencomputers:redstone>, 
     [[<ore:plateTitanium>, <ore:circuitExtreme>, <ore:plateTitanium>],
     [<ore:blockRedstone>, ev_machine_hull, <ore:blockRedstone>],
@@ -318,7 +370,6 @@ recipes.addShaped("ct_oc_redstoneio", <opencomputers:redstone>,
     
     
 //Relay
-recipes.removeByRecipeName("opencomputers:relay21");
 recipes.addShaped("ct_oc_relay", <opencomputers:relay>, 
     [[<ore:plateAluminium>, <ore:circuitGood>, <ore:plateAluminium>],
     [oc_cable, mv_machine_hull, oc_cable],
@@ -326,7 +377,6 @@ recipes.addShaped("ct_oc_relay", <opencomputers:relay>,
     
     
 //Screen tier1
-recipes.removeByRecipeName("opencomputers:screen122");
 recipes.addShaped("ct_oc_screen1", <opencomputers:screen1>, 
     [[<ore:wireFineAnnealedCopper>, <ore:circuitGood>, <ore:wireFineAnnealedCopper>],
     [<ore:plateGlowstone>, mv_machine_hull, <ore:blockGlassColorless>],
@@ -334,7 +384,6 @@ recipes.addShaped("ct_oc_screen1", <opencomputers:screen1>,
     
     
 //Screen tier2
-recipes.removeByRecipeName("opencomputers:screen224");
 recipes.addShaped("ct_oc_screen2", <opencomputers:screen2>, 
     [[<ore:wireFineAnnealedCopper>, <ore:circuitAdvanced>, <ore:wireFineAnnealedCopper>],
     [<ore:plateGlowstone>, hv_machine_hull, display],
@@ -342,7 +391,6 @@ recipes.addShaped("ct_oc_screen2", <opencomputers:screen2>,
     
 
 //Screen tier3
-recipes.removeByRecipeName("opencomputers:screen323");
 recipes.addShaped("ct_oc_screen3", <opencomputers:screen3>, 
     [[<ore:wireFineAnnealedCopper>, <ore:circuitExtreme>, <ore:wireFineAnnealedCopper>],
     [<ore:plateGlowstone>, ev_machine_hull, display],
@@ -351,7 +399,6 @@ recipes.addShaped("ct_oc_screen3", <opencomputers:screen3>,
     
     
 //Rack
-recipes.removeByRecipeName("opencomputers:rack25");
 recipes.addShaped("ct_oc_rack", <opencomputers:rack>, 
     [[<ore:plateStainlessSteel>, <ore:oc:wlanCard2>, <ore:plateStainlessSteel>],
     [<ore:frameGtStainlessSteel>, hv_machine_hull, <ore:frameGtStainlessSteel>],
@@ -359,7 +406,6 @@ recipes.addShaped("ct_oc_rack", <opencomputers:rack>,
     
     
 //Waypoint
-recipes.removeByRecipeName("opencomputers:waypoint26");
 recipes.addShaped("ct_oc_waypoint", <opencomputers:waypoint>, 
     [[<ore:plateAluminium>, <ore:circuitGood>, <ore:plateAluminium>],
     [transistor, <ore:oc:materialInterweb>, transistor],
@@ -367,7 +413,6 @@ recipes.addShaped("ct_oc_waypoint", <opencomputers:waypoint>,
     
     
 //Transposer
-recipes.removeByRecipeName("opencomputers:transposer29");
 recipes.addShaped("ct_oc_transposer", <opencomputers:transposer> * 4, 
     [[<ore:plateStainlessSteel>, <ore:oc:inventoryControllerUpgrade>, <ore:plateStainlessSteel>],
     [hv_robot_arm, hv_machine_hull, hv_robot_arm],
@@ -378,7 +423,6 @@ recipes.addShaped("ct_oc_transposer", <opencomputers:transposer> * 4,
  // Crafting Components (I've tried to make them equilibrated for addons)----------------------------------------------
  
  //Arithmetic logic unit
-recipes.removeByRecipeName("opencomputers:material39");
 circuit_assembler.recipeBuilder()
     .inputs(smd_transistor * 4)
     .inputs(<ore:circuitGood>)
@@ -388,7 +432,6 @@ circuit_assembler.recipeBuilder()
     .EUt(60)
     .duration(200)
     .buildAndRegister();
-recipes.removeByRecipeName("opencomputers:material39");
 circuit_assembler.recipeBuilder()
     .inputs(smd_transistor * 4)
     .inputs(<ore:circuitGood>)
@@ -402,7 +445,6 @@ circuit_assembler.recipeBuilder()
  
  
 //Card base
-recipes.removeByRecipeName("opencomputers:material34");
 circuit_assembler.recipeBuilder()
     .inputs(good_plastic_circuit_board)
     .inputs(smd_transistor * 2)
@@ -428,7 +470,6 @@ circuit_assembler.recipeBuilder()
     
     
 //Control unit    
-recipes.removeByRecipeName("opencomputers:material40");
 circuit_assembler.recipeBuilder()
     .inputs(smd_transistor * 4)
     .inputs(<minecraft:clock>)
@@ -438,7 +479,6 @@ circuit_assembler.recipeBuilder()
     .EUt(60)
     .duration(200)
     .buildAndRegister();
-recipes.removeByRecipeName("opencomputers:material40");
 circuit_assembler.recipeBuilder()
     .inputs(smd_transistor * 4)
     .inputs(<minecraft:clock>)
@@ -451,7 +491,6 @@ circuit_assembler.recipeBuilder()
     
     
 //Interweb
-recipes.removeByRecipeName("opencomputers:material42");
 assembler.recipeBuilder()
     .inputs(mv_emitter)
     .inputs(mv_sensor)
@@ -464,8 +503,6 @@ assembler.recipeBuilder()
 
 
 //microcontroller Tier 1
-
-recipes.removeByRecipeName("opencomputers:material48");
 assembler.recipeBuilder()
 	.inputs(mv_machine_hull)
 	.inputs(<ore:circuitGood>)
@@ -478,8 +515,6 @@ assembler.recipeBuilder()
     
 
 //microcontroller Tier 2 (strangely, the mod uses a chip tier 3 for that, so its a tier 3 machine)
-
-recipes.removeByRecipeName("opencomputers:material49");
 assembler.recipeBuilder()
 	.inputs(ev_machine_hull)
 	.inputs(<ore:circuitExtreme>)
@@ -492,8 +527,6 @@ assembler.recipeBuilder()
     
     
 //Microchip Tier 1 (is basically a MV circuit) 
-
-recipes.removeByRecipeName("opencomputers:material36");
 circuit_assembler.recipeBuilder()
     .inputs(resistor * 8)
     .inputs(<ore:circuitBasic> * 3)
@@ -527,8 +560,6 @@ circuit_assembler.recipeBuilder()
 
 
 //Microchip Tier 2 (is basically a HV circuit) 
-
-recipes.removeByRecipeName("opencomputers:material37");
 circuit_assembler.recipeBuilder()
     .inputs(resistor * 8)
     .inputs(<ore:circuitGood> * 4)
@@ -568,8 +599,6 @@ circuit_assembler.recipeBuilder()
     
     
 //Microchip Tier 3 (is basically an EV circuit) 
-
-recipes.removeByRecipeName("opencomputers:material38");
 circuit_assembler.recipeBuilder()
     .inputs(refined_smd_resistor * 8)
     .inputs(<opencomputers:material:6> * 8)
@@ -632,12 +661,8 @@ chemical_reactor.recipeBuilder()
 
 //RAW PCB remove it altogether because its only useful for smelting into a PCB, nor used in any addon.
 
-recipes.removeByRecipeName("opencomputers:material33");
-
     
 //tabled case Tier 1 (note: this one was downgraded from tier 3 to tier 2, giving this tier a niche)
-
-recipes.removeByRecipeName("opencomputers:material46");
 assembler.recipeBuilder()
 	.inputs(display)
     .inputs(hv_machine_hull)
@@ -652,8 +677,6 @@ assembler.recipeBuilder()
     
     
 //tablet case Tier 2 
-
-recipes.removeByRecipeName("opencomputers:material47");
 assembler.recipeBuilder()
 	.inputs(display)
     .inputs(ev_machine_hull)
@@ -668,9 +691,6 @@ assembler.recipeBuilder()
     
     
 //Transistor
-//Use this for compatibility with other OC addons. Useless in other cases.
-
-recipes.removeByRecipeName("opencomputers:material35");
 assembler.recipeBuilder()
 	.inputs(<ore:foilTin> * 6)
 	.inputs(<ore:plateSilicon>)
@@ -689,8 +709,6 @@ assembler.recipeBuilder()
 
     
 //accelerated processing unit (APU) Tier 2
-
-recipes.removeByRecipeName("opencomputers:component77");
 circuit_assembler.recipeBuilder()
     .inputs(oc_graphic_card_1)
     .inputs(<ore:circuitGood> * 2)
@@ -704,8 +722,6 @@ circuit_assembler.recipeBuilder()
     
     
 //accelerated processing unit (APU) Tier 3
-
-recipes.removeByRecipeName("opencomputers:component78");
 circuit_assembler.recipeBuilder()
     .inputs(oc_graphic_card_2)
     .inputs(<ore:circuitAdvanced> * 2)
@@ -719,8 +735,6 @@ circuit_assembler.recipeBuilder()
 
 
 //analyzer
-
-recipes.removeByRecipeName("opencomputers:tool55");
 assembler.recipeBuilder()
     .inputs(mv_sensor)
     .inputs(<ore:circuitGood> * 2)
@@ -734,8 +748,6 @@ assembler.recipeBuilder()
 
 
 //Central processing unit (CPU) Tier 1
-
-recipes.removeByRecipeName("opencomputers:component62");
 circuit_assembler.recipeBuilder()
     .inputs(oc_control_unit)
     .inputs(oc_arithmetic_logic_unit * 2)
@@ -749,8 +761,6 @@ circuit_assembler.recipeBuilder()
 
 
 //Central processing unit (CPU) Tier 2
-
-recipes.removeByRecipeName("opencomputers:component63");
 circuit_assembler.recipeBuilder()
     .inputs(oc_control_unit)
     .inputs(oc_arithmetic_logic_unit * 4)
@@ -764,8 +774,6 @@ circuit_assembler.recipeBuilder()
     
     
 //Central processing unit (CPU) Tier 3
-
-recipes.removeByRecipeName("opencomputers:component64");
 circuit_assembler.recipeBuilder()
     .inputs(oc_control_unit)
     .inputs(oc_arithmetic_logic_unit * 8)
@@ -779,8 +787,6 @@ circuit_assembler.recipeBuilder()
 
 
 //Component Bus tier 1
-
-recipes.removeByRecipeName("opencomputers:component65");
 circuit_assembler.recipeBuilder()
     .inputs(oc_control_unit)
     .inputs(<ore:circuitGood>)
@@ -793,8 +799,6 @@ circuit_assembler.recipeBuilder()
 
 
 //Component Bus tier 2
-
-recipes.removeByRecipeName("opencomputers:component66");
 circuit_assembler.recipeBuilder()
     .inputs(oc_control_unit)
     .inputs(<ore:circuitAdvanced>)
@@ -807,8 +811,6 @@ circuit_assembler.recipeBuilder()
     
 
 //Component Bus tier 3
-
-recipes.removeByRecipeName("opencomputers:component67");
 circuit_assembler.recipeBuilder()
     .inputs(oc_control_unit)
     .inputs(<ore:circuitExtreme>)
@@ -821,8 +823,6 @@ circuit_assembler.recipeBuilder()
     
     
 //Data card Tier 1
-
-recipes.removeByRecipeName("opencomputers:card90");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(oc_arithmetic_logic_unit)
@@ -835,8 +835,6 @@ assembler.recipeBuilder()
 
 
 //Data card Tier 2
-
-recipes.removeByRecipeName("opencomputers:card91");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(oc_arithmetic_logic_unit * 2)
@@ -849,8 +847,6 @@ assembler.recipeBuilder()
 
 
 //Data card Tier 3
-
-recipes.removeByRecipeName("opencomputers:card92");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(oc_arithmetic_logic_unit * 4)
@@ -862,8 +858,6 @@ assembler.recipeBuilder()
     .buildAndRegister(); 
     
 //Disk Drive
-
-recipes.removeByRecipeName("opencomputers:component80");
 assembler.recipeBuilder()
     .inputs(good_plastic_circuit_board)
     .inputs(<opencomputers:diskdrive>)
@@ -879,8 +873,6 @@ assembler.recipeBuilder()
 
 
 //Eeprom
-
-recipes.removeByRecipeName("opencomputers:storage125");
 assembler.recipeBuilder()
     .inputs(transistor * 3)
     .inputs(<ore:foilPlastic> * 2)
@@ -893,8 +885,6 @@ assembler.recipeBuilder()
     
 
 //Graphic card Tier 1
-
-recipes.removeByRecipeName("opencomputers:card81");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(oc_arithmetic_logic_unit)
@@ -908,8 +898,6 @@ assembler.recipeBuilder()
     
 
 //Graphic card Tier 2
-
-recipes.removeByRecipeName("opencomputers:card82");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(oc_arithmetic_logic_unit * 2)
@@ -923,8 +911,6 @@ assembler.recipeBuilder()
     
 
 //Graphic card Tier 3
-
-recipes.removeByRecipeName("opencomputers:card83");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(oc_arithmetic_logic_unit * 4)
@@ -938,8 +924,6 @@ assembler.recipeBuilder()
     
 
 //Hard disk Drive tier 1
-
-recipes.removeByRecipeName("opencomputers:storage127");
 assembler.recipeBuilder()
     .inputs(oc_disk_platter * 4)
     .inputs(oc_printed_circuit_board)
@@ -953,8 +937,6 @@ assembler.recipeBuilder()
     
     
 //Hard disk Drive tier 2
-
-recipes.removeByRecipeName("opencomputers:storage128");
 assembler.recipeBuilder()
     .inputs(oc_disk_platter * 8)
     .inputs(oc_printed_circuit_board)
@@ -969,8 +951,6 @@ assembler.recipeBuilder()
 
     
 //Hard disk Drive tier 3
-
-recipes.removeByRecipeName("opencomputers:storage129");
 assembler.recipeBuilder()
     .inputs(oc_disk_platter * 16)
     .inputs(oc_printed_circuit_board)
@@ -983,8 +963,6 @@ assembler.recipeBuilder()
     .buildAndRegister();  
 
 //Internet Card
-
-recipes.removeByRecipeName("opencomputers:card88");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(oc_interweb)
@@ -997,8 +975,6 @@ assembler.recipeBuilder()
     
 
 //Linked Card
-
-recipes.removeByRecipeName("opencomputers:card89");
 assembler.recipeBuilder()
     .inputs(oc_interweb)
     .inputs(<ore:circuitExtreme> * 2)
@@ -1012,8 +988,6 @@ assembler.recipeBuilder()
     
 
 //memory tier 1
-
-recipes.removeByRecipeName("opencomputers:component68");
 circuit_assembler.recipeBuilder()
     .inputs(gt_ram * 4)
     .inputs(<ore:circuitGood> * 2)
@@ -1026,8 +1000,6 @@ circuit_assembler.recipeBuilder()
     
     
 //memory tier 1.5
-
-recipes.removeByRecipeName("opencomputers:component69");
 circuit_assembler.recipeBuilder()
     .inputs(gt_ram * 6)
     .inputs(<ore:circuitGood> * 2)
@@ -1041,8 +1013,6 @@ circuit_assembler.recipeBuilder()
 
 
 //memory tier 2
-
-recipes.removeByRecipeName("opencomputers:component70");
 circuit_assembler.recipeBuilder()
     .inputs(gt_ram * 8)
     .inputs(<ore:circuitAdvanced> * 2)
@@ -1055,8 +1025,6 @@ circuit_assembler.recipeBuilder()
     
     
 //memory tier 2.5
-
-recipes.removeByRecipeName("opencomputers:component71");
 circuit_assembler.recipeBuilder()
     .inputs(gt_ram * 12)
     .inputs(<ore:circuitAdvanced> * 2)
@@ -1071,8 +1039,6 @@ circuit_assembler.recipeBuilder()
 
 
 //memory tier 3
-
-recipes.removeByRecipeName("opencomputers:component72");
 circuit_assembler.recipeBuilder()
     .inputs(gt_ram * 16)
     .inputs(<ore:circuitExtreme> * 2)
@@ -1085,8 +1051,6 @@ circuit_assembler.recipeBuilder()
     
     
 //memory tier 3.5
-
-recipes.removeByRecipeName("opencomputers:component73");
 circuit_assembler.recipeBuilder()
     .inputs(gt_ram * 24)
     .inputs(<ore:circuitExtreme> * 2)
@@ -1100,8 +1064,6 @@ circuit_assembler.recipeBuilder()
     
     
 //Network Card
-
-recipes.removeByRecipeName("opencomputers:card86");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(oc_cable)
@@ -1114,8 +1076,6 @@ assembler.recipeBuilder()
 
 
 //Redstone Card tier 1
-
-recipes.removeByRecipeName("opencomputers:card84");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(<ore:wireFineRedAlloy> * 8)
@@ -1128,8 +1088,6 @@ assembler.recipeBuilder()
     
     
 //Redstone Card Tier 2
-
-recipes.removeByRecipeName("opencomputers:card85");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(<ore:wireFineRedAlloy> * 16)
@@ -1142,8 +1100,6 @@ assembler.recipeBuilder()
 
 
 //Remote Terminal
-
-recipes.removeByRecipeName("opencomputers:tool56");
 assembler.recipeBuilder()
     .inputs(<opencomputers:upgrade:22>)
     .inputs(<opencomputers:card:7>)
@@ -1158,8 +1114,6 @@ assembler.recipeBuilder()
     
     
 //scrench
-
-recipes.removeByRecipeName("opencomputers:wrench59");
 recipes.addShaped("ct_oc_scrench", <opencomputers:wrench>, 
     [[<ore:ingotIron>, null, <ore:ingotIron>],
     [null, oc_control_unit , null],
@@ -1168,8 +1122,6 @@ recipes.addShaped("ct_oc_scrench", <opencomputers:wrench>,
     
        
 //Server tier 1
-
-recipes.removeByRecipeName("opencomputers:component74");
 assembler.recipeBuilder()
     .inputs(<ore:blockObsidian> * 2)
     .inputs(oc_printed_circuit_board)
@@ -1183,8 +1135,6 @@ assembler.recipeBuilder()
     
     
 //Server tier 2
-
-recipes.removeByRecipeName("opencomputers:component75");
 assembler.recipeBuilder()
     .inputs(<ore:blockObsidian> * 2)
     .inputs(oc_printed_circuit_board)
@@ -1198,8 +1148,6 @@ assembler.recipeBuilder()
     
     
 //Server tier 3
-
-recipes.removeByRecipeName("opencomputers:component76");
 assembler.recipeBuilder()
     .inputs(<ore:blockObsidian> * 2)
     .inputs(oc_printed_circuit_board)
@@ -1214,8 +1162,6 @@ assembler.recipeBuilder()
     
     
 //Terminal Server 
-
-recipes.removeByRecipeName("opencomputers:component79");
 assembler.recipeBuilder()
     .inputs(<opencomputers:card:7> * 3)
     .inputs(<ore:blockObsidian> * 4)
@@ -1229,8 +1175,6 @@ assembler.recipeBuilder()
     
 
 //Wireless Network card tier 1
-
-recipes.removeByRecipeName("opencomputers:upgrade124");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(mv_sensor)
@@ -1244,8 +1188,6 @@ assembler.recipeBuilder()
     
     
 //Wireless Network card tier 2
-
-recipes.removeByRecipeName("opencomputers:card87");
 assembler.recipeBuilder()
     .inputs(oc_card_base)
     .inputs(hv_sensor)
