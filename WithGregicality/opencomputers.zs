@@ -5,36 +5,32 @@ import crafttweaker.liquid.ILiquidStack;
 import mods.gregtech.recipe.RecipeMap;
 import crafttweaker.oredict.IOreDictEntry;
 
-val advanced_circuit_board = <gtadditions:ga_meta_item:32032>;
-val advanced_power_thruster = <gtadditions:ga_meta_item:32305>;
-val annealed_copper_foil = <gregtech:meta_item_1:19087>;
-val annealed_copper_cable = <gregtech:cable:5087>;
-val bronze_rotor = <gregtech:meta_item_2:18095>;
-val display = <gtadditions:ga_meta_item:32579>;
-val ev_machine_hull = <gregtech:machine:504>;
-val ev_piston = <gregtech:meta_item_1:32643>;
-val ev_robot_arm = <gregtech:meta_item_1:32653>;
-val ev_sensor = <gregtech:meta_item_1:32693>;
-val good_plastic_circuit_board = <gtadditions:ga_meta_item:32031>;
-val gt_ram = <gregtech:meta_item_2:32485>;
-val gt_cpu = <gregtech:meta_item_2:32478>;
-val high_power_ic = <gregtech:meta_item_2:32479>;
-val hv_emitter = <gregtech:meta_item_1:32682>;
-val hv_machine_hull = <gregtech:machine:503>;
-val hv_conveyor_belt = <gregtech:meta_item_1:32632>;
-val hv_piston = <gregtech:meta_item_1:32642>;
-val hv_robot_arm = <gregtech:meta_item_1:32652>;
-val hv_sensor = <gregtech:meta_item_1:32692>;
-val machine_controller = <gregtech:meta_item_1:32730>;
-val mv_cadmium_battery = <gregtech:meta_item_1:32527>;
-val mv_casing = <gregtech:machine_casing:2>;
-val mv_conveyor_belt = <gregtech:meta_item_1:32631>;
-val mv_emitter = <gregtech:meta_item_1:32681>;
-val mv_machine_hull = <gregtech:machine:502>;
-val mv_piston = <gregtech:meta_item_1:32641>;
-val mv_pump = <gregtech:meta_item_1:32611>;
-val mv_sensor = <gregtech:meta_item_1:32691>;
-val mv_robot_arm = <gregtech:meta_item_1:32651>;
+val advanced_circuit_board = <metaitem:board.advanced>;
+val advanced_power_thruster = <metaitem:impeller.hv>;
+val display = <metaitem:display>;
+val ev_machine_hull = <meta_tile_entity:gregtech:hull.ev>;
+val ev_piston = <metaitem:electric.piston.ev>;
+val ev_robot_arm = <metaitem:robot.arm.ev>;
+val ev_sensor = <metaitem:sensor.ev>;
+val good_plastic_circuit_board = <metaitem:board.good.plastic>;
+val gt_ram = <metaitem:plate.random_access_memory>;
+val gt_cpu = <metaitem:plate.central_processing_unit>;
+val high_power_ic = <metaitem:plate.high_power_integrated_circuit>;
+val hv_emitter = <metaitem:emitter.hv>;
+val hv_machine_hull = <meta_tile_entity:gregtech:hull.hv>;
+val hv_conveyor_belt = <metaitem:conveyor.module.hv>;
+val hv_piston = <metaitem:electric.piston.hv>;
+val hv_robot_arm = <metaitem:robot.arm.hv>;
+val hv_sensor = <metaitem:sensor.hv>;
+val machine_controller = <metaitem:cover.controller>;
+val mv_cadmium_battery = <metaitem:battery.re.mv.cadmium>;
+val mv_conveyor_belt = <metaitem:conveyor.module.mv>;
+val mv_emitter = <metaitem:emitter.mv>;
+val mv_machine_hull = <meta_tile_entity:gregtech:hull.mv>;
+val mv_piston = <metaitem:electric.piston.mv>;
+val mv_pump = <metaitem:electric.pump.mv>;
+val mv_sensor = <metaitem:sensor.mv>;
+val mv_robot_arm = <metaitem:robot.arm.mv>;
 val oc_arithmetic_logic_unit = <opencomputers:material:10>;
 val oc_cable = <opencomputers:cable>;
 val oc_card_base = <opencomputers:material:5>;
@@ -53,19 +49,17 @@ val oc_memory_2 = <opencomputers:component:8>;
 val oc_memory_3 = <opencomputers:component:10>;
 val oc_printed_circuit_board =<opencomputers:material:4>;
 val oc_transistor = <opencomputers:material:6>;
-val plastic_circuit_board = <gregtech:meta_item_2:32448>; 
-val power_ic = <gregtech:meta_item_2:32483>;
-val power_thruster = <gtadditions:ga_meta_item:32304>;
-val refined_smd_resistor = <gtadditions:ga_meta_item:32241>;
-val resistor = <gregtech:meta_item_2:32455>;
-val scanner= <gregtech:meta_item_2:32579>;
-val silicon_plate = <gregtech:meta_item_1:12061>;
-val smd_capacitor = <gregtech:meta_item_2:32458>;
-val smd_diode = <gregtech:meta_item_2:32457>;
-val smd_transistor  = <gregtech:meta_item_2:32460>;
-val smd_resistor = <gregtech:meta_item_2:32459>;
-val tin_foil = <gregtech:meta_item_1:19071>;
-val transistor = <gregtech:meta_item_2:32461>;
+val plastic_circuit_board = <metaitem:board.good.plastic>; 
+val power_ic = <metaitem:plate.power_integrated_circuit>;
+val power_thruster = <metaitem:impeller.mv>;
+val refined_smd_resistor = <metaitem:component.smd.transistor.refined>;
+val resistor = <metaitem:component.resistor>;
+val scanner= <metaitem:scanner>;
+val smd_capacitor = <metaitem:component.smd.capacitor>;
+val smd_diode = <metaitem:component.smd.diode>;
+val smd_transistor  = <metaitem:component.smd.transistor>;
+val smd_resistor = <metaitem:component.smd.resistor>;
+val transistor = <metaitem:component.transistor>;
 
 
 
@@ -95,7 +89,7 @@ recipes.removeByRecipeName("opencomputers:adapter0");
 assembler.recipeBuilder()
 	.inputs(mv_machine_hull)
 	.inputs(<ore:circuitGood>)
-    .inputs(annealed_copper_cable * 3)
+    .inputs(<ore:cableGtSingleAnnealedCopper> * 3)
     .inputs(mv_sensor)
     .fluidInputs([<liquid:soldering_alloy> * 144])
 	.outputs(<opencomputers:adapter>)
@@ -153,10 +147,10 @@ recipes.addShaped("ct_oc_charger", <opencomputers:charger>,
 recipes.removeByRecipeName("opencomputers:case14");
 assembler.recipeBuilder()
 	.inputs(mv_machine_hull)
-	.inputs(annealed_copper_cable * 2)
+	.inputs(<ore:cableGtSingleAnnealedCopper> * 2)
     .inputs(machine_controller)
     .inputs(<ore:frameGtAluminium>)
-    .inputs(bronze_rotor * 2)
+    .inputs(<ore:rotorBronze> * 2)
     .fluidInputs([<liquid:soldering_alloy> * 288])
 	.outputs(<opencomputers:case1>)
 	.EUt(90)
@@ -618,7 +612,7 @@ circuit_assembler.recipeBuilder()
 
 furnace.remove(<opencomputers:material:4>);
 chemical_reactor.recipeBuilder()
-    .inputs(annealed_copper_foil * 6)
+    .inputs(<ore:foilAnnealedCopper> * 6)
     .inputs(plastic_circuit_board)
     .fluidInputs([<liquid:sodium_persulfate> * 500])
     .outputs(<opencomputers:material:4>)
@@ -626,7 +620,7 @@ chemical_reactor.recipeBuilder()
     .duration(800)
     .buildAndRegister();
 chemical_reactor.recipeBuilder()
-    .inputs(annealed_copper_foil * 6)
+    .inputs(<ore:foilAnnealedCopper> * 6)
     .inputs(plastic_circuit_board)
     .fluidInputs([<liquid:iron_chloride> * 250])
     .outputs(<opencomputers:material:4>)
@@ -678,8 +672,8 @@ assembler.recipeBuilder()
 
 recipes.removeByRecipeName("opencomputers:material35");
 assembler.recipeBuilder()
-	.inputs(tin_foil * 6)
-	.inputs(silicon_plate)
+	.inputs(<ore:foilTin> * 6)
+	.inputs(<ore:plateSilicon>)
     .inputs(<minecraft:gold_nugget> * 2)
     .inputs(<minecraft:paper>)
     .fluidInputs([<liquid:plastic> * 144])
