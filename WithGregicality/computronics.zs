@@ -1,4 +1,8 @@
 //made by Darmin404/Alex404
+
+//Cannot remove recipes. Bummer
+
+
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
 import crafttweaker.liquid.ILiquidStack;
