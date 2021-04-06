@@ -1,4 +1,4 @@
-//made by Darmin404
+//made by Darmin404/Alex404
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
 import crafttweaker.liquid.ILiquidStack;
@@ -193,6 +193,7 @@ val name_removals = [
     "opencomputers:upgrade117",
     "opencomputers:upgrade118",
     "opencomputers:upgrade122",
+    "opencomputers:material41"
 ] as string[];
 
 for item in name_removals {
@@ -530,6 +531,17 @@ circuit_assembler.recipeBuilder()
     .buildAndRegister();
     
     
+//Disk Platter
+assembler.recipeBuilder()
+    .inputs(<ore:platePlastic>)
+    .inputs(<ore:foilSteelMagnetic>)
+    .fluidInputs([<liquid:plastic> * 144])
+    .outputs(<opencomputers:material:12>)
+    .EUt(60)
+    .duration(200)
+    .buildAndRegister();
+
+
 //Interweb
 assembler.recipeBuilder()
     .inputs(mv_emitter)
