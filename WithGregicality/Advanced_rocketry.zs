@@ -1,4 +1,4 @@
-//made by Darmin404/alex404
+//made by alex404
 
 /*//-------------------------------------------
 FOR BEST USE: Go into config folder (config/advRocketry). Open those different .xml files and find "<Recipes useDefault="true">" and put it to "false".
