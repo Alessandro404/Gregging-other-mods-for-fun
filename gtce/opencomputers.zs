@@ -1,4 +1,4 @@
-//made by Darmin404/alex404
+//made by alex404
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
 import crafttweaker.liquid.ILiquidStack;
@@ -27,7 +27,7 @@ val machine_controller = <metaitem:cover.controller>;
 val mv_cadmium_battery = <metaitem:battery.re.mv.cadmium>;
 val mv_conveyor_belt = <metaitem:conveyor.module.mv>;
 val mv_emitter = <metaitem:emitter.mv>;
-val mv_machine_hull = <gregtech:machine:503>;
+val mv_machine_hull = <gregtech:machine:502>;
 val mv_piston = <metaitem:electric.piston.mv>;
 val mv_pump = <metaitem:electric.pump.mv>;
 val mv_sensor = <metaitem:sensor.mv>;
