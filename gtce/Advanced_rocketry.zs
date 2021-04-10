@@ -12,6 +12,12 @@ import crafttweaker.liquid.ILiquidStack;
 import mods.gregtech.recipe.RecipeMap;
 import crafttweaker.oredict.IOreDictEntry;
 
+
+//fix gt tools:
+
+var craftingToolWrenchEmptyTag = <ore:craftingToolWrench>.firstItem.withEmptyTag();
+
+
 val autoclave = mods.gregtech.recipe.RecipeMap.getByName("autoclave");
 val mixer = mods.gregtech.recipe.RecipeMap.getByName("mixer");
 val assembler = mods.gregtech.recipe.RecipeMap.getByName("assembler");
@@ -435,13 +441,13 @@ recipes.addShaped("ar_co2_scrubber", <advancedrocketry:oxygenscrubber>,
 recipes.addShaped("ar_coal_generator", <libvulpes:coalgenerator>, 
     [[<ore:cableGtSingleTin>, <ore:circuitBasic>, <ore:cableGtSingleTin>],
     [gt_lv_electric_motor, <ore:craftingFurnace>, gt_lv_electric_motor],
-    [<ore:gearSteel>, <ore:craftingToolWrench>, <ore:gearSteel>]]);
+    [<ore:gearSteel>, craftingToolWrenchEmptyTag, <ore:gearSteel>]]);
 
 
 //Coil, Aluminum
 recipes.addShaped("ar_coil_aluminum", <libvulpes:coil0:9>, 
     [[<ore:wireGtQuadrupleAluminium>, <ore:wireGtQuadrupleAluminium>, <ore:wireGtQuadrupleAluminium>],
-    [<ore:wireGtQuadrupleAluminium>, <ore:craftingToolWrench>, <ore:wireGtQuadrupleAluminium>],
+    [<ore:wireGtQuadrupleAluminium>, craftingToolWrenchEmptyTag, <ore:wireGtQuadrupleAluminium>],
     [<ore:wireGtQuadrupleAluminium>, <ore:wireGtQuadrupleAluminium>, <ore:wireGtQuadrupleAluminium>]]);
 
 
@@ -449,28 +455,28 @@ recipes.addShaped("ar_coil_aluminum", <libvulpes:coil0:9>,
 //Coil, copper
 recipes.addShaped("ar_coil_copper", <libvulpes:coil0:4>, 
     [[<ore:wireGtQuadrupleCopper>, <ore:wireGtQuadrupleCopper>, <ore:wireGtQuadrupleCopper>],
-    [<ore:wireGtQuadrupleCopper>, <ore:craftingToolWrench>, <ore:wireGtQuadrupleCopper>],
+    [<ore:wireGtQuadrupleCopper>, craftingToolWrenchEmptyTag, <ore:wireGtQuadrupleCopper>],
     [<ore:wireGtQuadrupleCopper>, <ore:wireGtQuadrupleCopper>, <ore:wireGtQuadrupleCopper>]]);
 
 
 //Coil, gold
 recipes.addShaped("ar_coil_gold", <libvulpes:coil0:2>, 
     [[<ore:wireGtQuadrupleGold>, <ore:wireGtQuadrupleGold>, <ore:wireGtQuadrupleGold>],
-    [<ore:wireGtQuadrupleGold>, <ore:craftingToolWrench>, <ore:wireGtQuadrupleGold>],
+    [<ore:wireGtQuadrupleGold>, craftingToolWrenchEmptyTag, <ore:wireGtQuadrupleGold>],
     [<ore:wireGtQuadrupleGold>, <ore:wireGtQuadrupleGold>, <ore:wireGtQuadrupleGold>]]);
 
 
 //Coil, Iridium
 recipes.addShaped("ar_coil_iridium", <libvulpes:coil0:10>, 
     [[<ore:stickLongIridium>,<ore:stickLongIridium>,<ore:stickLongIridium>],
-    [<ore:stickLongIridium>,  <ore:craftingToolWrench>, <ore:stickLongIridium>],
+    [<ore:stickLongIridium>,  craftingToolWrenchEmptyTag, <ore:stickLongIridium>],
     [<ore:stickLongIridium>, <ore:stickLongIridium>, <ore:stickLongIridium>]]);
 
 
 //Coil, Titanium
 recipes.addShaped("ar_coil_titanium", <libvulpes:coil0:7>, 
     [[<ore:wireGtQuadrupleTitanium>, <ore:wireGtQuadrupleTitanium>, <ore:wireGtQuadrupleTitanium>],
-    [<ore:wireGtQuadrupleTitanium>, <ore:craftingToolWrench>, <ore:wireGtQuadrupleTitanium>],
+    [<ore:wireGtQuadrupleTitanium>, craftingToolWrenchEmptyTag, <ore:wireGtQuadrupleTitanium>],
     [<ore:wireGtQuadrupleTitanium>, <ore:wireGtQuadrupleTitanium>, <ore:wireGtQuadrupleTitanium>]]);
 
 
@@ -694,11 +700,11 @@ assembler.recipeBuilder()
 
 
 //Input hatch
-recipes.addShapeless("ar_input_hatch", <libvulpes:hatch>, [gt_hv_input_bus, <ore:craftingToolWrench>]);
+recipes.addShapeless("ar_input_hatch", <libvulpes:hatch>, [gt_hv_input_bus, craftingToolWrenchEmptyTag]);
 
 
 //Input fluid hatch
-recipes.addShapeless("ar_input_fluid_hatch", <libvulpes:hatch:2>, [gt_hv_input_hatch, <ore:craftingToolWrench>]);
+recipes.addShapeless("ar_input_fluid_hatch", <libvulpes:hatch:2>, [gt_hv_input_hatch, craftingToolWrenchEmptyTag]);
 
 
 //iron saw blade
@@ -855,11 +861,11 @@ assembler.recipeBuilder()
 
 
 //Output hatch
-recipes.addShapeless("ar_output_hatch", <libvulpes:hatch:1>, [gt_hv_output_bus, <ore:craftingToolWrench>]);
+recipes.addShapeless("ar_output_hatch", <libvulpes:hatch:1>, [gt_hv_output_bus, craftingToolWrenchEmptyTag]);
 
 
 //Output fluid hatch
-recipes.addShapeless("ar_output_fluid_hatch", <libvulpes:hatch:3>, [gt_hv_output_hatch, <ore:craftingToolWrench>]);
+recipes.addShapeless("ar_output_fluid_hatch", <libvulpes:hatch:3>, [gt_hv_output_hatch, craftingToolWrenchEmptyTag]);
 
 
 //Oxygen vent
@@ -889,7 +895,7 @@ assembler.recipeBuilder()
 
 
 //Power Input Plug
-recipes.addShapeless("ar_energy_input_hatch", <libvulpes:forgepowerinput>, [gt_hv_energy_hatch, <ore:craftingToolWrench>]);
+recipes.addShapeless("ar_energy_input_hatch", <libvulpes:forgepowerinput>, [gt_hv_energy_hatch, craftingToolWrenchEmptyTag]);
 
 
 //Pump
@@ -1061,7 +1067,7 @@ recipes.addShaped("ar_station_builder", <advancedrocketry:stationbuilder>,
 
 //Structure Tower
 recipes.addShaped("ar_structure_tower", <advancedrocketry:structuretower> * 3, 
-    [[<ore:stickStainlessSteel>, <ore:craftingToolWrench>, <ore:stickStainlessSteel>],
+    [[<ore:stickStainlessSteel>, craftingToolWrenchEmptyTag, <ore:stickStainlessSteel>],
     [<ore:stickStainlessSteel>, <ore:frameGtStainlessSteel>, <ore:stickStainlessSteel>],
     [<ore:stickStainlessSteel>, <ore:craftingToolHardHammer>, <ore:stickStainlessSteel>]]);
    
