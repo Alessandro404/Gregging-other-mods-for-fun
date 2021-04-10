@@ -1,4 +1,4 @@
-//made by alex404
+//made by Darmin404/alex404
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
 import crafttweaker.liquid.ILiquidStack;
@@ -27,7 +27,7 @@ val machine_controller = <metaitem:cover.controller>;
 val mv_cadmium_battery = <metaitem:battery.re.mv.cadmium>;
 val mv_conveyor_belt = <metaitem:conveyor.module.mv>;
 val mv_emitter = <metaitem:emitter.mv>;
-val mv_machine_hull = <gregtech:machine:502>;
+val mv_machine_hull = <gregtech:machine:503>;
 val mv_piston = <metaitem:electric.piston.mv>;
 val mv_pump = <metaitem:electric.pump.mv>;
 val mv_sensor = <metaitem:sensor.mv>;
@@ -64,6 +64,11 @@ val smd_resistor = <metaitem:component.smd.resistor>;
 val steel_tank = <gregtech:machine:813>;
 val stainless_steel_tank = <gregtech:machine:814>;
 val transistor = <metaitem:component.transistor>;
+
+
+//fix gt tools:
+
+var craftingToolWrenchEmptyTag = <ore:craftingToolWrench>.firstItem.withEmptyTag();
 
 
 
@@ -244,12 +249,12 @@ assembler.recipeBuilder()
 recipes.addShaped("ct_oc_capacitor", <opencomputers:capacitor>, 
     [[<ore:plateAluminium>, <ore:plateAluminium>, <ore:plateAluminium>],
     [<ore:wireGtDoubleAnnealedCopper>, mv_machine_hull, <ore:wireGtDoubleAnnealedCopper>],
-    [mv_cadmium_battery, <ore:craftingToolWrench>, mv_cadmium_battery]]);
+    [mv_cadmium_battery, craftingToolWrenchEmptyTag, mv_cadmium_battery]]);
 
 
 //Charger
 recipes.addShaped("ct_oc_charger", <opencomputers:charger>, 
-    [[<ore:plateStainlessSteel>, <ore:craftingToolWrench>, <ore:plateStainlessSteel>],
+    [[<ore:plateStainlessSteel>, craftingToolWrenchEmptyTag, <ore:plateStainlessSteel>],
     [<ore:oc:capacitor>, <ore:circuitAdvanced>, <ore:oc:capacitor>],
     [<ore:plateStainlessSteel>, hv_machine_hull, <ore:plateStainlessSteel>]]);
 
@@ -305,7 +310,7 @@ recipes.addShaped("ct_oc_disassembler", <opencomputers:disassembler>,
 
 //Disk drive
 recipes.addShaped("ct_oc_diskdrive", <opencomputers:diskdrive>, 
-    [[<ore:cableGtSingleAnnealedCopper>, <ore:circuitGood>, <ore:craftingToolWrench>],
+    [[<ore:cableGtSingleAnnealedCopper>, <ore:circuitGood>, craftingToolWrenchEmptyTag],
     [mv_piston, mv_machine_hull, <ore:craftingLensWhite>],
     [<ore:cableGtSingleAnnealedCopper>, <ore:circuitGood>, <ore:cableGtSingleAnnealedCopper>]]);
     
@@ -343,7 +348,7 @@ assembler.recipeBuilder()
 recipes.addShaped("ct_oc_geolyzer", <opencomputers:geolyzer>, 
     [[<ore:cableGtSingleElectrum>, scanner, <ore:cableGtSingleElectrum>],
     [mv_sensor, hv_machine_hull, mv_sensor],
-    [<ore:circuitAdvanced>, <ore:craftingToolWrench>, <ore:circuitAdvanced>]]);
+    [<ore:circuitAdvanced>, craftingToolWrenchEmptyTag, <ore:circuitAdvanced>]]);
     
     
 //hologram tier 1
@@ -372,14 +377,14 @@ recipes.addShaped("ct_oc_motionsensor", <opencomputers:motionsensor>,
 recipes.addShaped("ct_oc_powerconverter", <opencomputers:powerconverter>, 
     [[<ore:plateAluminium>, <ore:circuitGood>, <ore:plateAluminium>],
     [<ore:cableGtSingleAnnealedCopper>, mv_machine_hull, oc_cable],
-    [<ore:plateAluminium>, <ore:craftingToolWrench>, <ore:plateAluminium>]]);
+    [<ore:plateAluminium>, craftingToolWrenchEmptyTag, <ore:plateAluminium>]]);
      
     
 //Net splitter
 recipes.addShaped("ct_oc_netsplitter", <opencomputers:netsplitter>, 
     [[<ore:plateAluminium>, machine_controller, <ore:plateAluminium>],
     [oc_cable, mv_machine_hull, oc_cable],
-    [mv_piston, <ore:craftingToolWrench>, mv_piston]]);
+    [mv_piston, craftingToolWrenchEmptyTag, mv_piston]]);
     
     
 //power distributor
@@ -413,21 +418,21 @@ recipes.addShaped("ct_oc_relay", <opencomputers:relay>,
 recipes.addShaped("ct_oc_screen1", <opencomputers:screen1>, 
     [[<ore:wireFineAnnealedCopper>, <ore:circuitGood>, <ore:wireFineAnnealedCopper>],
     [<ore:plateGlowstone>, mv_machine_hull, <ore:blockGlassColorless>],
-    [<ore:wireFineAnnealedCopper>, <ore:craftingToolWrench>, <ore:wireFineAnnealedCopper>]]);
+    [<ore:wireFineAnnealedCopper>, craftingToolWrenchEmptyTag, <ore:wireFineAnnealedCopper>]]);
     
     
 //Screen tier2
 recipes.addShaped("ct_oc_screen2", <opencomputers:screen2>, 
     [[<ore:wireFineAnnealedCopper>, <ore:circuitAdvanced>, <ore:wireFineAnnealedCopper>],
     [<ore:plateGlowstone>, hv_machine_hull, <ore:blockGlassColorless>],
-    [<ore:wireFineAnnealedCopper>, <ore:craftingToolWrench>, <ore:wireFineAnnealedCopper>]]);
+    [<ore:wireFineAnnealedCopper>, craftingToolWrenchEmptyTag, <ore:wireFineAnnealedCopper>]]);
     
 
 //Screen tier3
 recipes.addShaped("ct_oc_screen3", <opencomputers:screen3>, 
     [[<ore:wireFineAnnealedCopper>, <ore:circuitExtreme>, <ore:wireFineAnnealedCopper>],
     [<ore:plateGlowstone>, ev_machine_hull, <ore:blockGlassColorless>],
-    [<ore:wireFineAnnealedCopper>, <ore:craftingToolWrench>, <ore:wireFineAnnealedCopper>]]);
+    [<ore:wireFineAnnealedCopper>, craftingToolWrenchEmptyTag, <ore:wireFineAnnealedCopper>]]);
     
     
     
