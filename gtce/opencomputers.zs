@@ -10,7 +10,7 @@ val chest_stainless_steel = <gregtech:machine:804>;
 val chest_titanium = <gregtech:machine:805>;
 val crafting_station = <gregtech:machine:825>;
 val ev_machine_hull = <meta_tile_entity:gregtech:hull.ev>;
-val ev_piston = <gregtech:machine:504>;
+val ev_piston = <metaitem:electric.piston.ev>;
 val ev_robot_arm = <metaitem:robot.arm.ev>;
 val ev_sensor = <metaitem:sensor.ev>;
 val gt_ram = <metaitem:plate.random_access_memory>;
@@ -740,15 +740,13 @@ assembler.recipeBuilder()
     
 //Transistor
 assembler.recipeBuilder()
-	.inputs(<ore:foilTin> * 6)
 	.inputs(<ore:plateSilicon>)
     .inputs(<minecraft:gold_nugget> * 2)
-    .inputs(<minecraft:paper>)
+    .inputs(<minecraft:paper> * 6)
     .fluidInputs([<liquid:plastic> * 144])
 	.outputs(<opencomputers:material:6> * 8)
 	.EUt(24)
 	.duration(80)
-    .property("circuit", 17 )
 	.buildAndRegister();
 
     
