@@ -749,15 +749,13 @@ assembler.recipeBuilder()
     
 //Transistor
 assembler.recipeBuilder()
-	.inputs(<ore:foilTin> * 6)
 	.inputs(<ore:plateSilicon>)
     .inputs(<minecraft:gold_nugget> * 2)
-    .inputs(<minecraft:paper>)
+    .inputs(<minecraft:paper> * 6)
     .fluidInputs([<liquid:plastic> * 144])
 	.outputs(<opencomputers:material:6> * 8)
 	.EUt(24)
 	.duration(80)
-    .property("circuit", 17 )
 	.buildAndRegister();
 
     
