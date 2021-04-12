@@ -876,6 +876,7 @@ assembler.recipeBuilder()
     .fluidInputs([<liquid:soldering_alloy> * 144])
     .outputs(<opencomputers:card:10>)
     .EUt(100)
+    .property("circuit", 17)
     .duration(300)
     .buildAndRegister();  
 
@@ -888,6 +889,7 @@ assembler.recipeBuilder()
     .fluidInputs([<liquid:soldering_alloy> * 144])
     .outputs(<opencomputers:card:11>)
     .EUt(300)
+    .property("circuit", 17)
     .duration(300)
     .buildAndRegister();  
 
@@ -900,6 +902,7 @@ assembler.recipeBuilder()
     .fluidInputs([<liquid:soldering_alloy> * 144])
     .outputs(<opencomputers:card:12>)
     .EUt(1200)
+    .property("circuit", 17)
     .duration(300)
     .buildAndRegister(); 
     
