@@ -1,4 +1,4 @@
-//made by Darmin404/alex404
+//made by alex404
 import crafttweaker.item.IIngredient;
 import crafttweaker.item.IItemStack;
 import crafttweaker.liquid.ILiquidStack;
